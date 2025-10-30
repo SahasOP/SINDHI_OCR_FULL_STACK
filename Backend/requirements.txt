@@ -1,0 +1,19 @@
+# Core Dependencies
+numpy>=1.21.0
+opencv-python>=4.5.0
+Pillow>=9.0.0
+
+# Deep Learning
+torch>=1.10.0
+torchvision>=0.11.0
+
+# API Framework
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+python-multipart>=0.0.6
+
+# Utilities
+pathlib2>=2.3.7
+
+# Optional: For better performance
+# opencv-contrib-python>=4.5.0  # If you need additional OpenCV features
