@@ -6,6 +6,8 @@ import shutil
 import tempfile
 import os
 import logging
+from fastapi.middleware.cors import CORSMiddleware
+
 
 # ✅ Import your segmenter and OCR modules
 from segmenter import SindhiTextSegmenter
@@ -15,6 +17,13 @@ from test import preprocess_image, load_model, decode_prediction
 
 app = FastAPI(title="Sindhi OCR API", description="Segments and recognizes Sindhi text from images")
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # or ["http://localhost:5173"] for Vite
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 # Load the model once when the API starts
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 MODEL_PATH = "model/Sindhi_ocr_sahash_13_sept__epoch.pth"
